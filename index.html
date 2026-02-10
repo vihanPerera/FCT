@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty of Computing and Technology</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable class-based dark mode
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#660000',
+                        secondary: '#1a1a1a',
+                        accent: '#ffd700',
+                        'primary-dark': '#4d0000',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Lora', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --bg-body: #ffffff;
+            --bg-surface: #f3f4f6;
+            --bg-surface-light: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #4b5563;
+            --border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .dark {
+            --bg-body: #0f0f0f;
+            --bg-surface: #121212;
+            --bg-surface-light: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .bg-surface {
+            background-color: var(--bg-surface);
+        }
+
+        .bg-surface-light {
+            background-color: var(--bg-surface-light);
+        }
+
+        .text-body {
+            color: var(--text-main);
+        }
+
+        .text-muted-custom {
+            color: var(--text-muted);
+        }
+
+        .border-custom {
+            border-color: var(--border-color);
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+        }
+
+        .dark .glass-panel {
+            background: rgba(30, 30, 30, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Hide scrollbar for horizontal scroll */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+    </style>
+</head>
+
+<body class="antialiased overflow-x-hidden dark"> <!-- Default to dark mode -->
+
+    <!-- Theme Toggle -->
+    <button id="theme-toggle"
+        class="fixed top-6 right-6 z-50 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary-dark transition-all duration-300">
+        <!-- Sun Icon -->
+        <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+            </path>
+        </svg>
+        <!-- Moon Icon -->
+        <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-transparent opacity-80 dark:via-black dark:to-black">
+            </div>
+            <!-- Background Image for Hero -->
+            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                class="absolute inset-0 w-full h-full object-cover -z-10 opacity-30 dark:opacity-20"
+                alt="University Background">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-primary/20 border border-primary/40 text-primary-200 dark:text-gray-200 text-sm font-medium tracking-wider mb-6 animate-fade-in-up"
+                style="animation-delay: 0.1s;">
+                EXCELLENCE IN EDUCATION
+            </span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight animate-fade-in-up text-body"
+                style="animation-delay: 0.2s;">
+                Faculty of <br />
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent dark:from-white dark:via-gray-200 dark:to-gray-400">Computing
+                    & Technology</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-muted-custom max-w-2xl mx-auto mb-10 font-light animate-fade-in-up font-serif"
+                style="animation-delay: 0.3s;">
+                Shaping the future through innovation, research, and world-class education.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
+                style="animation-delay: 0.4s;">
+                <a href="#degree-programs"
+                    class="px-8 py-4 bg-primary hover:bg-primary-dark text-white shadow-lg transition-all duration-300 font-medium tracking-wide">
+                    Explore Programs
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-gray-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Faculty Statistics -->
+    <section class="py-20 bg-surface border-y border-custom">
+        <div class="container mx-auto px-6">
+            <div
+                class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-200 dark:divide-gray-800">
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-body mb-2 counter" data-target="1500">0
+                    </div>
+                    <div class="text-sm text-primary uppercase tracking-widest font-sans">Students</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-body mb-2 counter" data-target="85">0
+                    </div>
+                    <div class="text-sm text-primary uppercase tracking-widest font-sans">Academic Staff</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-body mb-2 counter" data-target="50">0
+                    </div>
+                    <div class="text-sm text-primary uppercase tracking-widest font-sans">Research Labs</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl md:text-5xl font-serif font-bold text-body mb-2 counter" data-target="100">0
+                    </div>
+                    <div class="text-sm text-primary uppercase tracking-widest font-sans">Industry Partners</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Degree Programs (With Images) -->
+    <section id="degree-programs" class="section-padding relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-body mb-16 text-center">Undergraduate Degrees</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Program 1 -->
+                <div
+                    class="group relative bg-surface-light rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            alt="CS">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-body mb-3 font-serif">Computer Science</h3>
+                        <p class="text-muted-custom text-sm leading-relaxed mb-6 font-sans">
+                            Master the foundations of computation, algorithms, and artificial intelligence.
+                        </p>
+                        <a href="#" class="text-primary font-bold text-sm uppercase tracking-wide">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Program 2 -->
+                <div
+                    class="group relative bg-surface-light rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            alt="SE">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-body mb-3 font-serif">Software Engineering</h3>
+                        <p class="text-muted-custom text-sm leading-relaxed mb-6 font-sans">
+                            Design, develop, and maintain complex software systems for global industries.
+                        </p>
+                        <a href="#" class="text-primary font-bold text-sm uppercase tracking-wide">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Program 3 -->
+                <div
+                    class="group relative bg-surface-light rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            alt="ET">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-body mb-3 font-serif">Engineering Tech</h3>
+                        <p class="text-muted-custom text-sm leading-relaxed mb-6 font-sans">
+                            Bridging the gap between scientific principles and practical application.
+                        </p>
+                        <a href="#" class="text-primary font-bold text-sm uppercase tracking-wide">Learn More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Program 4 -->
+                <div
+                    class="group relative bg-surface-light rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                            alt="BST">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-body mb-3 font-serif">Biosystems Tech</h3>
+                        <p class="text-muted-custom text-sm leading-relaxed mb-6 font-sans">
+                            Innovating at the intersection of biology and technology, sustainable future.
+                        </p>
+                        <a href="#" class="text-primary font-bold text-sm uppercase tracking-wide">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Awards & Recognition (With Images) -->
+    <section class="py-20 bg-surface overflow-hidden relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-body mb-4">Awards & Recognition</h2>
+                <p class="text-muted-custom max-w-2xl mx-auto">Celebrating excellence in academia and research globally.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="glass-panel p-6 rounded-lg hover:border-primary/50 transition-all duration-300 flex flex-col items-center text-center group">
+                    <img src="https://img.icons8.com/fluency/96/trophy.png"
+                        class="w-16 h-16 mb-4 group-hover:scale-110 transition-transform" alt="Award">
+                    <h3 class="text-xl font-bold text-body mb-2 font-serif">Best Research Faculty 2024</h3>
+                    <p class="text-muted-custom text-sm">Awarded by the International Association of Computing.</p>
+                </div>
+                <div
+                    class="glass-panel p-6 rounded-lg hover:border-primary/50 transition-all duration-300 flex flex-col items-center text-center group">
+                    <img src="https://img.icons8.com/fluency/96/medal2.png"
+                        class="w-16 h-16 mb-4 group-hover:scale-110 transition-transform" alt="Award">
+                    <h3 class="text-xl font-bold text-body mb-2 font-serif">Excellence in Innovation</h3>
+                    <p class="text-muted-custom text-sm">Recognized for groundbreaking contributions in AI.</p>
+                </div>
+                <div
+                    class="glass-panel p-6 rounded-lg hover:border-primary/50 transition-all duration-300 flex flex-col items-center text-center group">
+                    <img src="https://img.icons8.com/fluency/96/diploma.png"
+                        class="w-16 h-16 mb-4 group-hover:scale-110 transition-transform" alt="Award">
+                    <h3 class="text-xl font-bold text-body mb-2 font-serif">Top 10 Tech Institutes</h3>
+                    <p class="text-muted-custom text-sm">Ranked among the elite technology faculties in the region.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments (With Images) -->
+    <section class="section-padding bg-surface-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-body mb-16 text-center">Our Departments</h2>
+
+            <div class="space-y-24">
+                <!-- Dept 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-12 group">
+                    <div class="w-full md:w-1/2 overflow-hidden rounded-lg shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            alt="CS Dept">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-bold text-body mb-4 font-serif">Department of <span
+                                class="text-primary">Computer Systems</span></h3>
+                        <p class="text-muted-custom leading-relaxed mb-6">
+                            Focusing on the hardware-software interface, networking, and high-performance computing
+                            systems. Our research drives the infrastructure of the digital age.
+                        </p>
+                        <ul class="text-muted-custom space-y-2 mb-8">
+                            <li class="flex items-center"><span
+                                    class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></span>Network Architecture</li>
+                            <li class="flex items-center"><span
+                                    class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></span>Embedded Systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dept 2 -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 group">
+                    <div class="w-full md:w-1/2 overflow-hidden rounded-lg shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            alt="SE Dept">
+                    </div>
+                    <div class="w-full md:w-1/2 md:text-right">
+                        <h3 class="text-2xl font-bold text-body mb-4 font-serif">Department of <span
+                                class="text-primary">Software Engineering</span></h3>
+                        <p class="text-muted-custom leading-relaxed mb-6">
+                            Developing robust, scalable, and secure software solutions. We emphasize agile methodologies
+                            and advanced architectural patterns.
+                        </p>
+                        <ul class="text-muted-custom space-y-2 mb-8 inline-block text-left">
+                            <li class="flex items-center"><span
+                                    class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></span>Software Architecture</li>
+                            <li class="flex items-center"><span
+                                    class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></span>DevOps & CI/CD</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dept 3 -->
+                <div class="flex flex-col md:flex-row items-center gap-12 group">
+                    <div class="w-full md:w-1/2 overflow-hidden rounded-lg shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-700"
+                            alt="AC Dept">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <h3 class="text-2xl font-bold text-body mb-4 font-serif">Department of <span
+                                class="text-primary">Applied Computing</span></h3>
+                        <p class="text-muted-custom leading-relaxed mb-6">
+                            Applying computational methods to solve real-world problems in science, engineering, and
+                            business optimization.
+                        </p>
+                        <ul class="text-muted-custom space-y-2 mb-8">
+                            <li class="flex items-center"><span
+                                    class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></span>Data Science</li>
+                            <li class="flex items-center"><span
+                                    class="w-1.5 h-1.5 bg-primary rounded-full mr-3"></span>Computational Biology</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Summary -->
+    <section id="research" class="section-padding bg-surface">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-body mb-8 text-center">Research Summary</h2>
+            <div class="bg-surface-light p-8 rounded-2xl shadow-xl border border-custom mb-12">
+                <p class="text-lg text-muted-custom leading-loose text-center max-w-4xl mx-auto">
+                    Our faculty is at the forefront of technological innovation, driving impactful research across
+                    multiple disciplines.
+                    From <strong class="text-primary">Artificial Intelligence</strong> to <strong
+                        class="text-primary">Sustainable Energy</strong>,
+                    our research centers collaborate with global industries to solve the pressing challenges of
+                    tomorrow.
+                    We have published over 500 papers in top-tier journals this year alone, securing grants worth over
+                    $10M.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6">
+                <div
+                    class="bg-surface-light p-6 rounded-lg border-l-4 border-primary shadow hover:shadow-lg transition-all">
+                    <h4 class="text-body font-bold mb-2 font-serif">AI & Robotics</h4>
+                    <p class="text-muted-custom text-sm">Autonomous systems and machine learning applications.</p>
+                </div>
+                <div
+                    class="bg-surface-light p-6 rounded-lg border-l-4 border-primary shadow hover:shadow-lg transition-all">
+                    <h4 class="text-body font-bold mb-2 font-serif">Cybersecurity</h4>
+                    <p class="text-muted-custom text-sm">Network defense, cryptography, and secure protocols.</p>
+                </div>
+                <div
+                    class="bg-surface-light p-6 rounded-lg border-l-4 border-primary shadow hover:shadow-lg transition-all">
+                    <h4 class="text-body font-bold mb-2 font-serif">Green Tech</h4>
+                    <p class="text-muted-custom text-sm">Sustainable energy computing and biosystems.</p>
+                </div>
+                <div
+                    class="bg-surface-light p-6 rounded-lg border-l-4 border-primary shadow hover:shadow-lg transition-all">
+                    <h4 class="text-body font-bold mb-2 font-serif">Data Science</h4>
+                    <p class="text-muted-custom text-sm">Big data analytics and predictive modeling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities (Horizontal Scroll) -->
+    <section class="section-padding bg-surface-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-body mb-12 border-b border-custom pb-6">World-Class Facilities
+            </h2>
+            <!-- Horizontal scroll container -->
+            <div class="flex overflow-x-auto space-x-6 pb-8 hide-scrollbar snap-x snap-mandatory">
+                <div
+                    class="min-w-[300px] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg h-64 flex-shrink-0 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a783?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Lab"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-6 left-6">
+                        <h4 class="text-white font-bold text-xl">Robotics Lab</h4>
+                    </div>
+                </div>
+                <div
+                    class="min-w-[300px] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg h-64 flex-shrink-0 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1597589827317-4c6d6e0a90bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Lecture Hall"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-6 left-6">
+                        <h4 class="text-white font-bold text-xl">Smart Auditoriums</h4>
+                    </div>
+                </div>
+                <div
+                    class="min-w-[300px] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg h-64 flex-shrink-0 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Library"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-6 left-6">
+                        <h4 class="text-white font-bold text-xl">Digital Library</h4>
+                    </div>
+                </div>
+                <div
+                    class="min-w-[300px] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg h-64 flex-shrink-0 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1574352067721-72d5913ef8e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Gym"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-6 left-6">
+                        <h4 class="text-white font-bold text-xl">Student Lounge</h4>
+                    </div>
+                </div>
+                <div
+                    class="min-w-[300px] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg h-64 flex-shrink-0 cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="Conference Room"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90">
+                    </div>
+                    <div class="absolute bottom-6 left-6">
+                        <h4 class="text-white font-bold text-xl">Innovation Hub</h4>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-sm text-primary animate-pulse mt-4">Swipe to view more facilities &rarr;</p>
+        </div>
+    </section>
+
+    <!-- Success Stories (Image Left, Story Right) -->
+    <section class="section-padding bg-surface">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-body mb-8">Success Stories</h2>
+            <div class="bg-surface-light rounded-2xl overflow-hidden shadow-2xl border border-custom">
+                <div class="flex flex-col md:flex-row">
+                    <!-- Image Side -->
+                    <div class="md:w-1/3 relative h-64 md:h-auto">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            class="absolute inset-0 w-full h-full object-cover" alt="Student">
+                        <div class="absolute inset-0 bg-primary/20"></div>
+                    </div>
+                    <!-- Content Side -->
+                    <div class="md:w-2/3 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="mb-4">
+                            <span class="text-primary font-bold tracking-widest text-sm uppercase">Featured Story</span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-serif font-bold text-body mb-4">"From Campus to Silicon
+                            Valley"</h3>
+                        <p class="text-muted-custom italic text-lg mb-6 leading-relaxed">
+                            "The faculty provided me with not just knowledge, but the mindset to tackle global
+                            challenges. The incubator program allowed me to pitch my idea to international investors."
+                        </p>
+                        <div>
+                            <h4 class="text-body font-bold text-lg">Alex Johnson</h4>
+                            <p class="text-sm text-muted-custom">Senior Engineer @ Google • Class of 2022</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Updates (Interactive) -->
+    <section class="section-padding bg-surface-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-serif font-bold text-body mb-12 text-center">News & Campus Life</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Top Main Story Display -->
+                <div class="md:col-span-2 relative h-96 rounded-lg overflow-hidden group shadow-lg">
+                    <img id="main-news-img"
+                        src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                        alt="News"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8">
+                        <span id="main-news-tag"
+                            class="bg-primary text-white text-xs px-2 py-1 rounded mb-3 inline-block">TOP STORY</span>
+                        <h3 id="main-news-title" class="text-2xl font-bold text-white mb-2 font-serif">Annual
+                            Convocation 2025 Held with Grandeur</h3>
+                        <p id="main-news-desc" class="text-gray-300 text-sm line-clamp-2">The university celebrated the
+                            graduation of over 500 students in a prestigious ceremony attended by industry leaders.</p>
+                    </div>
+                </div>
+
+                <!-- News List Interactive -->
+                <div class="bg-surface p-6 rounded-lg border border-custom h-96 overflow-y-auto custom-scroll">
+                    <h3 class="text-xl font-bold text-body mb-6 sticky top-0 bg-surface py-2 border-b border-custom">
+                        Latest Updates</h3>
+                    <ul class="space-y-4">
+                        <li class="news-item cursor-pointer pb-4 border-b border-custom last:border-0 hover:bg-black/5 dark:hover:bg-white/5 p-2 rounded transition-colors"
+                            data-img="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            data-title="Annual Convocation 2025"
+                            data-desc="The university celebrated the graduation of over 500 students in a prestigious ceremony."
+                            data-tag="TOP STORY">
+                            <span class="text-xs text-primary font-semibold">Today</span>
+                            <h5 class="text-body text-sm font-medium mt-1">Annual Convocation 2025</h5>
+                        </li>
+                        <li class="news-item cursor-pointer pb-4 border-b border-custom last:border-0 hover:bg-black/5 dark:hover:bg-white/5 p-2 rounded transition-colors"
+                            data-img="https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            data-title="Guest Lecture on AI Ethics"
+                            data-desc="Dr. Smith from MIT delivered an insightful session on the future of AI and ethical considerations."
+                            data-tag="ACADEMIC">
+                            <span class="text-xs text-primary font-semibold">Yesterday</span>
+                            <h5 class="text-body text-sm font-medium mt-1">Guest Lecture on AI Ethics</h5>
+                        </li>
+                        <li class="news-item cursor-pointer pb-4 border-b border-custom last:border-0 hover:bg-black/5 dark:hover:bg-white/5 p-2 rounded transition-colors"
+                            data-img="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                            data-title="Partnering with Microsoft"
+                            data-desc="A new strategic partnership to open a cloud computing innovation lab."
+                            data-tag="PARTNERSHIP">
+                            <span class="text-xs text-primary font-semibold">Last Week</span>
+                            <h5 class="text-body text-sm font-medium mt-1">Partnership with Microsoft</h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Footer -->
+    <section class="py-12 bg-primary-dark text-white relative overflow-hidden">
+        <!-- Moving background pattern -->
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] animate-[float_20s_linear_infinite]">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="mb-8">
+                <svg class="w-12 h-12 mx-auto mb-4 text-white/80 animate-pulse-slow" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+                <h2 class="text-3xl font-serif font-bold mb-2">Join the Innovation</h2>
+                <p class="text-white/70">Faculty of Computing & Technology</p>
+            </div>
+
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#"
+                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all">FB</a>
+                <a href="#"
+                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all">TW</a>
+                <a href="#"
+                    class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white hover:text-primary transition-all">LI</a>
+            </div>
+
+            <p class="text-xs text-white/40">&copy; 2026 Faculty of Computing and Technology. All Rights Reserved.</p>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle Logic
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            const body = document.body;
+
+            themeToggleBtn.addEventListener('click', () => {
+                body.classList.toggle('dark');
+                sunIcon.classList.toggle('hidden');
+                moonIcon.classList.toggle('hidden');
+            });
+
+            // News Interaction Logic
+            const newsItems = document.querySelectorAll('.news-item');
+            const mainImg = document.getElementById('main-news-img');
+            const mainTitle = document.getElementById('main-news-title');
+            const mainDesc = document.getElementById('main-news-desc');
+            const mainTag = document.getElementById('main-news-tag');
+
+            newsItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Update main view
+                    mainImg.style.opacity = '0';
+                    setTimeout(() => {
+                        mainImg.src = item.dataset.img;
+                        mainTitle.textContent = item.dataset.title;
+                        mainDesc.textContent = item.dataset.desc;
+                        mainTag.textContent = item.dataset.tag;
+                        mainImg.style.opacity = '1';
+                    }, 300);
+                });
+            });
+
+            // Counter Animation (Existing)
+            const counters = document.querySelectorAll('.counter');
+            const speed = 200;
+
+            const animateCounters = () => {
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                });
+            };
+
+            // Intersection Observers
+            const observerOptions = { threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.group, h2, p, .glass-panel');
+            fadeElements.forEach(el => {
+                if (el.classList.contains('animate-fade-in-up')) return;
+                el.style.opacity = '0'; // Initial state for JS animation
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });
+
+            const counterSection = document.querySelector('.counter')?.closest('section');
+            if (counterSection) {
+                const counterObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        animateCounters();
+                        counterObserver.disconnect();
+                    }
+                }, { threshold: 0.5 });
+                counterObserver.observe(counterSection);
+            }
+        });
+    </script>
+</body>
+
+</html>
